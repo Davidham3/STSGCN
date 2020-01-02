@@ -1,0 +1,27 @@
+{
+    "module_type": "individual",
+    "act_type": "GLU",
+    "temporal_emb": false,
+    "spatial_emb": false,
+    "use_mask": false,
+    "first_layer_embedding_size": 64,
+    "filters": [
+        [64, 64, 64],
+        [64, 64, 64],
+        [64, 64, 64],
+        [64, 64, 64]
+    ],
+    "batch_size": 32,
+    "learning_rate": 1e-3,
+    "optimizer": "adam",
+    "epochs": 200,
+    "max_update_factor": 1,
+    "ctx": 0,
+    "adj_filename": "data/PEMS03/PEMS03.csv",
+    "id_filename": "data/PEMS03/PEMS03.txt",
+    "graph_signal_matrix_filename": "data/PEMS03/PEMS03.npz",
+    "num_of_vertices": 358,
+    "points_per_hour": 12,
+    "num_for_predict": 12,
+    "num_of_features": 1
+}

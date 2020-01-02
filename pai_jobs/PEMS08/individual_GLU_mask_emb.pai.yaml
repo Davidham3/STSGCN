@@ -1,0 +1,19 @@
+protocolVersion: 2
+name: new_job
+type: job
+prerequisites:
+  - name: image
+    type: dockerimage
+    uri: lin-ai-27:5000/songchao/mxnet:1.50_cu100
+taskRoles:
+  train:
+    instances: 1
+    dockerImage: image
+    resourcePerInstance:
+      cpu: 4
+      memoryMB: 8000
+      gpu: 1
+    commands:
+      - 'wget http://172.31.246.53:7077/STSGCN.tar.gz'
+      - tar -zxvf STSGCN.tar.gz
+      - python3 STSGCN/main.py --config STSGCN/config/PEMS08/individual_GLU_mask_emb.json

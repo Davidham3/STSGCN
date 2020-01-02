@@ -1,0 +1,3 @@
+mxnet-cu100
+pytest
+graphviz

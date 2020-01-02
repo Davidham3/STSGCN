@@ -1,0 +1,22 @@
+{
+    "module_type": "individual",
+    "act_type": "relu",
+    "first_layer_embedding_size": 64,
+    "filters": [
+        [64, 64, 64],
+        [64, 64, 64],
+        [64, 64, 64],
+        [64, 64, 64]
+    ],
+    "batch_size": 32,
+    "learning_rate": 1e-3,
+    "epochs": 200,
+    "max_update_factor": 1,
+    "ctx": 0,
+    "adj_filename": "data/PEMS04/PEMS04.csv",
+    "id_filename": null,
+    "graph_signal_matrix_filename": "data/PEMS04/PEMS04.npz",
+    "num_of_vertices": 307,
+    "points_per_hour": 12,
+    "num_for_predict": 12
+}
