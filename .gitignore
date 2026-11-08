@@ -1,3 +1,16 @@
-.pytest_cache/
-.vscode/
+.venv/
 __pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+lightning_logs/
+.vscode/
+
+# datasets / generated artifacts
+data/
+compare/parity_artifacts/
+.qoder/
+compare/mxnet_dump_*.npz
+compare/mxnet_dump_*.npz.names.json

@@ -1,0 +1,42 @@
+# PEMS04 — sharing / GLU
+# Data: PEMS-STSGCN parquet dataset from ModelScope (repo Davidham3/pems-stsgcn by default).
+# Converted from STSGCN/config/PEMS04/sharing_GLU.json
+# NOTE: original JSON omitted num_of_features, temporal_emb, spatial_emb, use_mask; defaulted to 1, true, true, true.
+# Lightning CLI config: keys under `model` / `data` are the constructor
+# arguments of STSGCN and STSGCNDataModule; `trainer` is passed to pl.Trainer.
+seed_everything: 42
+model:
+  num_of_vertices: 307
+  hub_dataset: PEMS04
+  hub_source: ms
+  input_length: 12
+  num_of_features: 1
+  first_layer_embedding_size: 64
+  filter_list: [[64, 64, 64], [64, 64, 64], [64, 64, 64], [64, 64, 64]]
+  module_type: sharing
+  activation: GLU
+  temporal_emb: true
+  spatial_emb: true
+  use_mask: true
+  learning_rate: 0.001
+  max_update_factor: 1.0
+data:
+  hub_dataset: PEMS04
+  hub_source: ms
+  batch_size: 32
+  num_workers: 8
+trainer:
+  # checkpoints / logs go to <dataset>/<variant>/lightning_logs/version_N/
+  default_root_dir: lightning_logs/PEMS04/sharing_GLU
+  max_epochs: 200
+  accelerator: auto
+  devices: 1
+  callbacks:
+    - class_path: pytorch_lightning.callbacks.ModelCheckpoint
+      init_args:
+        monitor: val/loss
+        mode: min
+        save_top_k: 1
+        filename: STSGCN-{epoch:02d}
+  plugins:
+    - class_path: pytorch_lightning.plugins.io.async_plugin.AsyncCheckpointIO

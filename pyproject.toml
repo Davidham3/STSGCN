@@ -1,0 +1,57 @@
+[project]
+name = "stsgcn"
+version = "0.1.0"
+description = "PyTorch Lightning reimplementation of STSGCN (AAAI 2020)"
+readme = "README.md"
+authors = [
+    { name = "Chao Song", email = "davidchaosong@outlook.com" },
+]
+maintainers = [
+    { name = "Chao Song", email = "davidchaosong@outlook.com" },
+]
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.12"
+dependencies = [
+    "torch==2.6.0",
+    "pytorch-lightning>=2.1",
+    "numpy>=1.24",
+    "pyarrow>=15",
+    "pyyaml>=6.0",
+    "jsonargparse[signatures]>=4.50.0",
+]
+
+# Data sources are opt-in (hub.py imports them lazily):
+#   hf  -> load the Parquet dataset from HuggingFace
+#   ms  -> load it from ModelScope
+[project.optional-dependencies]
+hf = ["huggingface_hub>=0.23"]
+ms = ["modelscope>=1.13"]
+
+[dependency-groups]
+dev = ["pytest>=8.0"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["stsgcn_torch"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[[tool.uv.index]]
+name = "aliyun"
+url = "https://mirrors.aliyun.com/pypi/simple/"
+default = true
+
+[[tool.uv.index]]
+name = "pytorch-cu124"
+url = "https://mirrors.aliyun.com/pytorch-wheels/cu124/"
+format = "flat"
+explicit = true
+
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu124" }]
+torchvision = [{ index = "pytorch-cu124" }]
