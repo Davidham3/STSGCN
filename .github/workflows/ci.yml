@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: uv lock + pytest
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install Python
+        run: uv python install 3.12
+
+      # Fails if pyproject.toml and uv.lock are out of sync.
+      - name: Check lockfile
+        run: uv lock --check
+
+      # --locked also refuses to update the lockfile during install.
+      - name: Install dependencies
+        run: uv sync --locked --extra ms
+
+      - name: Run tests
+        run: uv run pytest -q
