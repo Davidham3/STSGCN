@@ -841,7 +841,7 @@ wheels = [
 
 [[package]]
 name = "modelscope"
-version = "1.40.2"
+version = "1.40.3"
 source = { registry = "https://mirrors.aliyun.com/pypi/simple/" }
 dependencies = [
     { name = "filelock" },
@@ -852,14 +852,14 @@ dependencies = [
     { name = "tqdm" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://mirrors.aliyun.com/pypi/packages/d7/af/f92c9824db46757dd1b0b5cbf3778daf54e7e44f0e1e6934d0b1bedfb286/modelscope-1.40.2.tar.gz", hash = "sha256:7a642cef8c144c28c4ddcc37db5fd803f5481f0d78a7f26c2b9e0e2a225b528c" }
+sdist = { url = "https://mirrors.aliyun.com/pypi/packages/ab/4b/125735c03a503a3a7148af1afafd1e319dd055e0508f3d942ffee83e8582/modelscope-1.40.3.tar.gz", hash = "sha256:d0659a670f314ced9c5c8d3c13803dc3705b381a40ed1c3a0c45a16c31580ec6" }
 wheels = [
-    { url = "https://mirrors.aliyun.com/pypi/packages/b9/8a/e85b79ee1c541f7bbf208fd7a6185c9b11e50c192b1071b0750db26b09e9/modelscope-1.40.2-py3-none-any.whl", hash = "sha256:ea03e0ec4a73398a488d3d240cda4f0c5b62390377a134756d4074a3036cb909" },
+    { url = "https://mirrors.aliyun.com/pypi/packages/bc/89/13e64797471146fa4060c0ece96a80eb0aedf81359a9b3eca18382f6046d/modelscope-1.40.3-py3-none-any.whl", hash = "sha256:a2d9e239e58de7c1162da4a54472defb98f4c076900dd7ebfed3370c694e2cb8" },
 ]
 
 [[package]]
 name = "modelscope-hub"
-version = "0.6.1"
+version = "0.7.1"
 source = { registry = "https://mirrors.aliyun.com/pypi/simple/" }
 dependencies = [
     { name = "cryptography" },
@@ -868,9 +868,9 @@ dependencies = [
     { name = "tqdm" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://mirrors.aliyun.com/pypi/packages/97/15/c4ce155f8a0796522de938a22dc9f545fdf3dfe65c01f785e38f7236ee84/modelscope_hub-0.6.1.tar.gz", hash = "sha256:e4e4172fda39f332ca2419cd1907e23207ec9d2ea14bdd35ad36ee9b031da401" }
+sdist = { url = "https://mirrors.aliyun.com/pypi/packages/16/6f/16ff2e20f1fe2fde2ec61ea80b400fff2660af3cc92c6d1c86af50752f36/modelscope_hub-0.7.1.tar.gz", hash = "sha256:9210e99f775424dbc253b61d6acc1351a7de03e6b9cca9b75fa2f73b03fae8c2" }
 wheels = [
-    { url = "https://mirrors.aliyun.com/pypi/packages/f2/66/1ac2e7be583b2df1aff38f5ba896446eeff5e5ae66142e3c61263c077f54/modelscope_hub-0.6.1-py3-none-any.whl", hash = "sha256:b1dfed21d24ae2ec7f9ada2ca12a463ab8a8fadf17b2101fdd14d61b1466788f" },
+    { url = "https://mirrors.aliyun.com/pypi/packages/4d/97/251ed3ac2506dba305fb758be928a21f5b6e49b0268d13b375abc7e8bb5f/modelscope_hub-0.7.1-py3-none-any.whl", hash = "sha256:1e41a686a57831c3d8176cc041f2825944fe16ea579a0dbc1cc90df4d42a42f5" },
 ]
 
 [[package]]
